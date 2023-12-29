@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from 'react'
 import {  Disclosure } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import AudioPlayer from '../AudioPlayer/Audioplayer';
-import ClassModal from '../LoginModal/ClassModal';
+import AudioPlayer from './../AudioPlayer/AudioPlayer';
+import ClassModal from './../LoginModal/ClassModal';
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
