@@ -6,8 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
-axios.defaults.withCredentials = true;
-
 const StudentsList = ({ selectedStandard, selectedYear }) => {
   const [students, setStudents] = useState([]);
   console.log(selectedYear);
