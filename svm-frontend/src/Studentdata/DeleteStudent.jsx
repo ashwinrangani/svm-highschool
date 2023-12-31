@@ -8,7 +8,7 @@ const  DeleteStudent = ({ id }) => {
   
   const deleteStudent = async () => {
     try {
-      await axios.delete(`http://localhost:4000/students/delete/${id}`);
+      await axios.delete(`https://svm-backend.onrender.com/students/delete/${id}`);
       // Filter out the deleted student from the students array
       const updatedStudents = students.filter((student) => student._id !== id);
       // Update the state to re-render the UI without the deleted student

@@ -6,15 +6,16 @@ dotenv.config();
 
 const EditStudent = async (req, res) => {
   try {
-    const token = req.cookies.token; // Extract token from cookies
-    console.log('Token from Cookie:', token);
+    const token = req.headers['authorization']; // Extract token from cookies
+    console.log('Token from Header:', token);
 
     if (!token) {
       return res.status(403).json({ message: "Unauthorized: Token missing" });
     }
 
     try {
-      const decodedToken = jwt.verify(token, process.env.TOKEN_KEY); // Verify and decode the token
+      const jwtToken = token.replace('Bearer', '').trim();
+      const decodedToken = jwt.verify(jwtToken, process.env.TOKEN_KEY); // Verify and decode the token
       const userId = decodedToken.id; // Extract user's ID from the decoded token
       console.log('User ID:', userId);
 

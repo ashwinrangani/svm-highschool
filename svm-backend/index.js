@@ -17,11 +17,19 @@ mongoose
   app.use(cookieParser());
 app.use(express.json());
 
-  app.use(cors({
-    origin: ['http://localhost:5173', 'https://rhz016gw-5173.inc1.devtunnels.ms',],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  }));
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://rhz016gw-5173.inc1.devtunnels.ms',
+    'https://svm-highschool.vercel.app'
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));
+// Handle preflight requests
+app.options('*', cors());
+
+
 
 console.log("Route file reached");
 

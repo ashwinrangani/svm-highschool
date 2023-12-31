@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
 import axios from "axios";
 import { Button } from 'flowbite-react';
 import AddStudent from "./AddStudent";
@@ -8,49 +7,55 @@ import StudentsList from "./StudentsList";
 import SearchStudents from "./SearchStudent";
 
 
-axios.defaults.withCredentials = true;
 
 const Header = () => {
   const navigate = useNavigate();
-  const [cookies, removeCookie] = useCookies([]);
   const [username, setUsername] = useState("");
-  const [selectedStandard, setSelectedStandard ] = useState(null);
+  const [selectedStandard, setSelectedStandard] = useState(null);
   const [selectedYear, setSelectedYear] = useState('2023-2024');
- 
 
   useEffect(() => {
-    const verifyCookie = async () => {
-      if (!cookies.token) {
-        console.log("no cookies/token");
-      } else {
-        try {
-          const { data } = await axios.post(
-            "http://localhost:4000/students",
-            {},
-            { withCredentials: true, }
-          );
-          const { user } = data;
-          setUsername(user);
-        } catch (error) {
-          console.error("Error fetching user data:", error);
-        }
+    const verifyToken = async () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        console.log("No token found in localStorage");
+        return;
+      }
+
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+      try {
+        const response = await axios.post(
+          "https://svm-backend.onrender.com/students",
+          {},
+          { withCredentials: true }
+        );
+        const { data } = response;
+        console.log(data);
+
+        setUsername(data.user);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
       }
     };
-    verifyCookie();
-  }, [cookies, navigate, removeCookie]);
+
+    verifyToken();
+  }, [navigate]);
 
   const Logout = () => {
-    removeCookie("token");
+    localStorage.removeItem('token');
     navigate("/");
   };
 
   const handleStandardClick = (standard) => {
-    setSelectedStandard(standard)
-  }
+    setSelectedStandard(standard);
+  };
 
   const handleSelectYear = (year) => {
     setSelectedYear(year);
-  }
+  };
+
+
   return (
     <>
      

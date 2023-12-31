@@ -18,7 +18,7 @@ const EditStudent = ({ id }) => {
   useEffect(() => {
     const getStudentData = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:4000/students/one/${id}`);
+        const { data } = await axios.get(`https://svm-backend.onrender.com/students/one/${id}`);
         const studentData = data.getStudent; // Access the nested student data
         
         // Set the initial state with the received data

@@ -23,17 +23,13 @@ const Login = async (req, res, next) => {
     }
 
     const token = createSecretToken(user._id);
-    res.cookie("token", token, {
-      withCredentials: true,
-      httpOnly: false,
-      secure: true, // Change to true in production when using HTTPS
-      path: "/" ,
-      
-      
-      
+    res.status(201).json({ 
+      message: "User logged in successfully", 
+      success: true, 
+      role: user.role,
+      id: user._id,
+      token: token // Include the token in the response
     });
-
-    res.status(201).json({ message: "User logged in successfully", success: true, role: user.role });
     next();
   } catch (error) {
     console.error(error);

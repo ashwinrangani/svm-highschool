@@ -20,7 +20,7 @@ function Signup() {
     }
 
     try {
-      const { data } = await axios.post('http://localhost:4000/signup', {
+      const { data } = await axios.post('https://svm-backend.onrender.com/signup', {
         email,
         username,
         password,

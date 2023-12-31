@@ -17,13 +17,16 @@ function Login() {
         email,
         password,
       });
-
+      
+      const { data } = response;
       // the backend returns {message, success} as json
       if (response.data.success) {
+        localStorage.setItem('token', data.token);
         toast.success('Login successful! Redirecting...');
         setTimeout(() => {
           navigate('/students');
         }, 2000); 
+        console.log(data);
       } else {
         toast.error(response.data.message);
       }

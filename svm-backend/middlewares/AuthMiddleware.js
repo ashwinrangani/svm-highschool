@@ -5,14 +5,16 @@ import User from "../models/userModel.js";
 dotenv.config();
 
 const userVerification = (req, res) => {
-  const token = req.cookies.token
-  console.log('Received cookies:', req.cookies); // Log received token
+  const token = req.headers['authorization'];
+  console.log('Received cookies:', token); 
   if (!token) {
     console.log("no token received")
     return res.json({ status: false });
     
   }
-  jwt.verify(token, process.env.TOKEN_KEY, async (err, data) => {
+const jwttoken = token.replace('Bearer', '').trim(); //must remove Bearer prefix before verify
+
+  jwt.verify(jwttoken, process.env.TOKEN_KEY, async (err, data) => {
     if (err) {
      return res.json({ status: false })
     } else {

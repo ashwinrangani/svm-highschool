@@ -38,7 +38,7 @@ const StudentsList = ({ selectedStandard, selectedYear }) => {
 
     if (shouldDelete) {
       try {
-        const { data } =  await axios.delete(`http://localhost:4000/students/delete/${id}`);
+        const { data } =  await axios.delete(`https://svm-backend.onrender.com/students/delete/${id}`);
         const updatedStudents = students.filter((student) => student._id !== id);
         const { message } = data;
 

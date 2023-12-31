@@ -8,7 +8,7 @@ const SearchStudents = () => {
 
   const handleSearch = async (query) => {
     try {
-      const { data } = await axios.get(`http://localhost:4000/search?query=${query}`);
+      const { data } = await axios.get(`https://svm-backend.onrender.com/search?query=${query}`);
       setSearchResults(data);
     } catch (error) {
       console.error('Error searching students:', error);
