@@ -17,7 +17,7 @@ const StudentsList = ({ selectedStandard, selectedYear }) => {
     const fetchStudentsByStandard = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:4000/students/${selectedYear}/${selectedStandard}`,
+          `https://svm-backend.onrender.com/${selectedYear}/${selectedStandard}`,
           { withCredentials: true }
         );
         setStudents(data.students);
