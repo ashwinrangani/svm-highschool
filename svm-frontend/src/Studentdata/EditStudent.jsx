@@ -18,7 +18,7 @@ const EditStudent = ({ id }) => {
   useEffect(() => {
     const getStudentData = async () => {
       try {
-        const { data } = await axios.get(`https://svm-backend.onrender.com/students/one/${id}`);
+        const { data } = await axios.get(`https://svm-highschool-backend.vercel.app/students/one/${id}`);
         const studentData = data.getStudent; // Access the nested student data
         
         // Set the initial state with the received data
@@ -44,7 +44,7 @@ const EditStudent = ({ id }) => {
   e.preventDefault();
 
   try {
-    await axios.put(`http://localhost:4000/students/edit/${id}`, {
+    await axios.put(`https://svm-highschool-backend.vercel.app/students/edit/${id}`, {
       studentname,
       standard,
       rollnumber,

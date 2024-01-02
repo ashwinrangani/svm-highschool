@@ -15,7 +15,7 @@ const StudentsList = ({ selectedStandard, selectedYear }) => {
     const fetchStudentsByStandard = async () => {
       try {
         const { data } = await axios.get(
-          `https://svm-backend.onrender.com/students/${selectedYear}/${selectedStandard}`,
+          `https://svm-highschool-backend.vercel.app/students/${selectedYear}/${selectedStandard}`,
           { withCredentials: true }
         );
         setStudents(data.students);
@@ -36,7 +36,7 @@ const StudentsList = ({ selectedStandard, selectedYear }) => {
 
     if (shouldDelete) {
       try {
-        const { data } =  await axios.delete(`https://svm-backend.onrender.com/students/delete/${id}`);
+        const { data } =  await axios.delete(`https://svm-highschool-backend.vercel.app/students/delete/${id}`);
         const updatedStudents = students.filter((student) => student._id !== id);
         const { message } = data;
 

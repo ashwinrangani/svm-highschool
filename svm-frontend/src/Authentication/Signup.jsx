@@ -20,7 +20,7 @@ function Signup() {
     }
 
     try {
-      const { data } = await axios.post('https://svm-backend.onrender.com/signup', {
+      const { data } = await axios.post('https://svm-highschool-backend.vercel.app/signup', {
         email,
         username,
         password,

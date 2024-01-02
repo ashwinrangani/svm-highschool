@@ -19,7 +19,7 @@ function AddStudent() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://svm-backend.onrender.com/students/addstudent', {
+      const response = await axios.post('https://svm-highschool-backend.vercel.app/students/addstudent', {
         studentname,
         standard,
         rollnumber,

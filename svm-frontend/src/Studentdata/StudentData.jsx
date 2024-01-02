@@ -26,7 +26,7 @@ const Header = () => {
 
       try {
         const response = await axios.post(
-          "https://svm-backend.onrender.com/students",
+          "https://svm-highschool-backend.vercel.app/students",
           {},
           { withCredentials: true }
         );
