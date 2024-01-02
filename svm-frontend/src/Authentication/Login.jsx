@@ -13,7 +13,7 @@ function Login() {
     event.preventDefault();
 
     try {
-      const response = await axios.post('https://svm-backend.onrender.com/login', {
+      const response = await axios.post('https://svm-highschool-backend.vercel.app/login', {
         email,
         password,
       });
