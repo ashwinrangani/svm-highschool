@@ -65,7 +65,7 @@ setImages(imageNavratri.map((item)=> item.src))
 
   return (
     <div 
-        className="bg-red-200 w-screen">
+        className="bg-red-200 w-screen" id="gallery">
       <div className="pt-2">
         <h1 className="text-center font-semibold text-3xl">Events/Activities</h1>
       </div>

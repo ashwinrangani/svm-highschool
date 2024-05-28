@@ -20,7 +20,7 @@ const About = () => {
   };
 
   return (
-    <div className="w-screen bg-red-800">
+    <div className="w-screen bg-red-800" id='about'>
       <h1 className="text-2xl md:text-4xl font-bold font-mono text-neutral-300 text-center py-5">
         <span className='bg-white text-yellow-800'>About</span> Us
       </h1>

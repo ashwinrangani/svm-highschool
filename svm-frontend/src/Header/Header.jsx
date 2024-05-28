@@ -6,9 +6,9 @@ import ClassModal from './../LoginModal/ClassModal';
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
-  { name: 'Divisions', href: '#', current: false },
+  { name: 'Gallery', href: '#gallery', current: false },
   { name: 'About', href: '#about', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Contact', href: '#contact', current: false },
  ];
 
 
@@ -75,8 +75,8 @@ export default function Navbar () {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="h-10 w-10 border-r-2"
-                    src="./logo.jpg"
+                    className="h-11 w-10 "
+                    src="./vidhya-bharti-logo.png"
                     alt="SVM"
                   />
                 </div>
@@ -88,7 +88,7 @@ export default function Navbar () {
                         href={item.href}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-bold'
+                          'rounded-md px-3 py-3 text-sm font-bold'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -99,8 +99,8 @@ export default function Navbar () {
                   </div>
                   
                 </div>
-                <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-6"></div>
+                <div className="hidden  sm:ml-6 sm:w-full sm:block">
+                  <div className="flex space-x-6 py-0.5"></div>
                   <AudioPlayer />
                
                   </div>
